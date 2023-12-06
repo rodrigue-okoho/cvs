@@ -21,13 +21,16 @@ class FrontController extends Controller
         return view('home', []);
 
     }
-    public function cvManager(){
-        $json=EndPoints::getCandidat('654e3a440bb09f3eedae7ac0');
+    public function cvManager($id){
+        //654e39e70bb09f3eedae7abf
+        $json=EndPoints::getCandidat($id);
         logger($json);
-        Pdf::setOption(['dpi' => 150, 'defaultFont' => 'sans-serif']);
-        $pdf = PDF::loadView('cvs.cv1',['candidat'=>$json[0]]);
+        $educations=$json['educations'];
+        $experiences=$json['works'];
+        Pdf::setOption(['dpi' => 100, 'defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadView('cvs.cv1',['candidat'=>$json,'educations'=>$educations,'experiences'=>$experiences]);
        // $pdf->getCss()->add_style();
-        $pdf->save("/home/ballack/IdeaProjects/projet_school/fichier.pdf")->output();
+        $pdf->save(env('URL_FILE').$id.'.pdf')->output();
         return $json;
     }
 }

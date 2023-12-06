@@ -15,10 +15,10 @@
         <section class="mt-3 mx-2">
             <span class="left-title">Lingustics skill</span>
             <div class="mx-2 text-white">
-                <div class="">German</div>
-                <div><span style="width: 60%">Reading Comprehension:</span><span style="width: 40%;text-align: right">C1</span></div>
-                <div><span style="width: 60%">Reading Comprehension:</span><span style="width: 40%">C1</span></div>
-                <div><span style="width: 60%">Reading Comprehension:</span><span style="width: 40%">C1</span></div>
+                <div class="blod">German</div>
+                <div class="mt-3"><span style="width: 60%">Reading Comprehension:</span><span style="width: 40%;text-align: right">C1</span></div>
+                <div class="mt-3"><span style="width: 60%">Reading Comprehension:</span><span style="width: 40%">C1</span></div>
+                <div class="mt-3"><span style="width: 60%">Reading Comprehension:</span><span style="width: 40%">C1</span></div>
 
             </div>
         </section>
@@ -29,9 +29,9 @@
 
     </div>
     <div class="col-md-9">
-        <section>
-            <h3>Laura hertk</h3>
-            <h3 class="text-primary">Anderson</h3>
+        <section style="margin-top: 10px">
+            <h3 style="margin: 0;color: #0a53be">Laura hertk</h3>
+            <h2 class="blod" style="margin: 0;color: #0a53be">Anderson</h2>
             <span>Designer</span>
             <section class="mt-3 mx-2">
                 <span class="right-title">Profile</span>
@@ -40,10 +40,12 @@
                     façade ("PDF" en abrégé) au tableau $aliases dans votre fichier de configuration
                 </div>
             </section>
-            <section class="mt-3 mx-2">
+            <section class="mt-3 mx-2 outer-box">
                 <span class="right-title">Education</span>
-                <div>
-                </div>
+                <ul>
+                    <li> <span>2023:</span> <span>Certifacate of etude : university of stokon</span></li>
+                    <li> <span>2023:</span> <span>Certifacate of etude : university of stokon</span></li>
+                </ul>
             </section>
         </section>
     </div>

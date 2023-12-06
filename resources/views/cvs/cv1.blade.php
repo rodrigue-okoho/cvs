@@ -16,35 +16,36 @@
             {{--section image--}}
             <section class="text-white">
                 <div class=" text-center" style="margin-top: 10px">
-                    <img class="img-thumbnail rounded-circle" src="{{public_path('images/user.png')}}" height="100" width="100">
+                  <img class="img-thumbnail rounded-circle" src="{{public_path('images/user.png')}}" height="100" width="100">
+                     {{-- <img class="img-thumbnail rounded-circle" src="{{$candidat['userAccount']['imageUrl']}}" height="100" width="100">--}}
                 </div>
                 <div  class="mt-3 mx-2">
                     <p><img src=""> <span class="f-10">+237675066919</span></p>
-                    <p><img src=""> <span class="f-10">rodriguembah13@gmail.com</span></p>
-                    <p><img src=""> <span class="f-10">www.monprofil.com</span></p>
+                    <p><img src=""> <span class="f-10">{{$candidat['userAccount']['email']}}</span></p>
+                    <p><img src=""> <span class="f-10">{{$candidat['facebook']}}</span></p>
                 </div>
             </section>
             {{--section lingustic skills--}}
             <section class="mt-3 mx-2">
-            {{--section digital link--}}
-            <section class="mt-3 mx-2">
                 <span class="left-title">Lingustics skill</span>
                 <div class="mx-2 text-white">
-                    <div class="">German</div>
-                    <div><span style="width: 60%">Reading Comprehension:</span><span style="width: 40%;text-align: right">C1</span></div>
-                    <div><span style="width: 60%">Reading Comprehension:</span><span style="width: 40%">C1</span></div>
-                    <div><span style="width: 60%">Reading Comprehension:</span><span style="width: 40%">C1</span></div>
+                    <div class="blod">German</div>
+                    <div class="mt-3"><span style="width: 60%">Reading Comprehension:</span><span style="width: 40%;text-align: right">C1</span></div>
+                    <div class="mt-3"><span style="width: 60%">Reading Comprehension:</span><span style="width: 40%">C1</span></div>
+                    <div class="mt-3"><span style="width: 60%">Reading Comprehension:</span><span style="width: 40%">C1</span></div>
 
                 </div>
             </section>
+            {{--section digital link--}}
+            <section class="mt-3 mx-2">
                 <span class="left-title">Digital Link</span>
             </section>
 
         </div>
         <div class="col-md-9">
             <section>
-                <h3>{{$candidat['userAccount']['firstName']}}</h3>
-                <h3 class="text-primary">{{$candidat['userAccount']['lastName']}}</h3>
+                <h3 style="margin: 0;color: #0a53be">{{$candidat['userAccount']['firstName']}}</h3>
+                <h2 class="blod" style="margin: 0;color: #0a53be">{{$candidat['userAccount']['lastName']}}</h2>
                 <span>Designer</span>
                 <section class="mt-3 mx-2">
                     <span class="right-title">Profile</span>
@@ -53,11 +54,30 @@
                         façade ("PDF" en abrégé) au tableau $aliases dans votre fichier de configuration
                     </div>
                 </section>
-                <section class="mt-3 mx-2">
+                @if(sizeof($educations))
+                <section class="mt-3 mx-2 outer-box">
                     <span class="right-title">Education</span>
-                    <div>
-                    </div>
+
+                        <ul>
+                            @foreach($educations as $education)
+                            <li> <span>{{$education['begin']}}:{{$education['end']}}</span> <span>{{$education['libelle']}} : {{$education['traning_body']}}</span></li>
+                            @endforeach
+                        </ul>
+
                 </section>
+               @endif
+                @if(sizeof($experiences))
+                    <section class="mt-3 mx-2 outer-box">
+                        <span class="right-title">Experience</span>
+                        <ul>
+                            @foreach($experiences as $experience)
+                                <li> <span>{{$experience['begin']}}:{{$experience['end']}}</span> <span>{{$experience['libelle']}} : {{$experience['employer_name']}}</span></li>
+
+                            @endforeach
+                        </ul>
+                    </section>
+              @endif
+
             </section>
         </div>
     </div>

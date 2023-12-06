@@ -1,3 +1,26 @@
+.blod{
+    font-weight: bold;
+}
+.right-title:after {
+    content: "";
+    display: block;
+    height: 1px;
+    background: #373b3e;
+    right: 0;
+    width: 1000px;
+    left: 159px;
+    position: absolute;
+}
+.left-title:after {
+    content: "";
+    display: block;
+    height: 1px;
+    background: #373b3e;
+    right: 0;
+    width: 10%;
+    left: 158px;
+    position: relative;
+}
 .col-md-3{width:25%;
 float: left}
 .col-md-9{width:72%;
@@ -36,6 +59,7 @@ p{
     width: 150px;
     display: inline-block;
     font-weight: bold;
+    position: relative;
 }
 .right-title{
     font-size: 14px;
@@ -47,7 +71,71 @@ p{
     width: 150px;
     display: inline-block;
     font-weight: bold;
+    position: relative;
 }
 .sider-bar{
     min-height: 100px;
+}
+.outer-box ul {
+    max-width: 400px;
+    list-style-type: none;
+    counter-reset: steps;
+    margin: 10px 0 0;
+    font-family: sans-serif;
+}
+.outer-box ul li {
+    padding: 0 0 20px 50px;
+    position: relative;
+    margin: 0;
+}
+.outer-box ul li:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    counter-increment: steps;
+    border: 2px solid #000;
+    border-radius: 50%;
+    display: inline-block;
+    height: 4px;
+    width: 4px;
+    text-align: center;
+    line-height: 4px;
+    background: #fff;
+}
+/*ul li:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: counter(steps);
+    counter-increment: steps;
+    border: 2px solid #000;
+    border-radius: 50%;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    text-align: center;
+    line-height: 24px;
+    background: #fff;
+}*/
+/*ul li:before {
+    position: absolute;
+    left: 13px;
+    top: 0;
+    content: "";
+    height: 100%;
+    width: 0;
+    border-left: 2px dashed #000;
+}*/
+ul li:before {
+    position: absolute;
+    left: 3px;
+    top: 0;
+    content: "";
+    height: 100%;
+    width: 0;
+    border-left: 2px dotted rgba(217, 48, 37, 0.15);
+}
+ul li:last-of-type:before {
+    border: none
 }
