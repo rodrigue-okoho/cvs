@@ -20,9 +20,9 @@
                      {{-- <img class="img-thumbnail rounded-circle" src="{{$candidat['userAccount']['imageUrl']}}" height="100" width="100">--}}
                 </div>
                 <div  class="mt-3 mx-2">
-                    <p><img src=""> <span class="f-10">+237675066919</span></p>
-                    <p><img src=""> <span class="f-10">{{$candidat['userAccount']['email']}}</span></p>
-                    <p><img src=""> <span class="f-10">{{$candidat['facebook']}}</span></p>
+                    <p><img src="" alt=""/> <span class="f-10">+237675066919</span></p>
+                    <p><img src="" alt=""> <span class="f-10">{{$candidat['userAccount']['email']}}</span></p>
+                    <p><img src="" alt=""> <span class="f-10">{{$candidat['facebook']}}</span></p>
                 </div>
             </section>
             {{--section lingustic skills--}}
