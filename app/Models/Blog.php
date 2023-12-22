@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -61,4 +61,13 @@ class Blog extends Model
     protected $appends = [
         'display_status',
     ];
+/**
+ * Get the blog's display status.
+ */
+protected function displayStatus(): Attribute
+{
+    return Attribute::make(
+        get: fn ($value) => $this->statuses[$this->status] ?? 'Unknown',
+    );
+}
 }
