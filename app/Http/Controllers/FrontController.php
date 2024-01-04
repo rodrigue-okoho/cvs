@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 
 
 
-
 use App\Http\Service\EndPoints;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Dompdf\Css\Stylesheet;
@@ -70,16 +69,17 @@ class FrontController extends Controller
             Storage::disk('public')->makeDirectory("photos");
         }
         Storage::disk('public')->put('photos/' . $imagename, $image_base64);
-        logger(env("APP_URL").'storage/photos/'.$imagename);
+        logger(env("APP_URL").'/storage/photos/'.$imagename);
             $item=[
               'mode'=>$request->get("mode"),
                 'id'=>$id,
                 "user_type"=>$request->get("user_type"),
-              'url'=>env("APP_URL").'storage/photos/'.$imagename,
+              'url'=>env("APP_URL").'/storage/photos/'.$imagename,
                 'domain'=>env("APP_URL"),
-                'imageUrl'=>env("APP_URL").'storage/photos/'.$imagename,
+                'imageUrl'=>env("APP_URL").'/storage/photos/'.$imagename,
                 'fileUrl'=>$file
             ];
+            logger(json_encode($item));
          return EndPoints::savePhoto(json_encode($item));
 
     }
