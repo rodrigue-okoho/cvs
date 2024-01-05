@@ -40,18 +40,20 @@ class FrontController extends Controller
             case 1:
                 $pdf = PDF::loadView('cvs.cv1',['candidat'=>$json,"languages"=>$languages,
                     'educations'=>$educations,'experiences'=>$experiences]);
-                $pdf->save('cvs/'.$id.'.pdf',Storage::get("public/cvs"));
+                Storage::put('public/cvs/'.$id.'.pdf', $pdf->output());
+               // $pdf->save('cvs/'.$id.'.pdf',Storage::get("public/cvs"));
                 break;
             case 2:
 
                 $pdf = PDF::loadView('cvs.cv2',['candidat'=>$json,"languages"=>$languages,'educations'=>$educations,'experiences'=>$experiences]);
                 $pdf->getDomPdf()->getOptions()->set('enable_php', true);
-
-                $pdf->setPaper('letter', 'landscape')->setOption('margin-bottom', 0)->save('cvs/'.$id.'.pdf',Storage::get("public/cvs"));
+                Storage::put('public/cvs/'.$id.'.pdf', $pdf->output());
+               // $pdf->setPaper('letter', 'landscape')->setOption('margin-bottom', 0)->save('cvs/'.$id.'.pdf',Storage::get("public/cvs"));
                 break;
             default:
                 $pdf = PDF::loadView('cvs.cv1',['candidat'=>$json,"languages"=>$languages,'educations'=>$educations,'experiences'=>$experiences]);
-                $pdf->save('cvs/'.$id.'.pdf',Storage::get("public/cvs"));
+                Storage::put('public/cvs/'.$id.'.pdf', $pdf->output());
+                // $pdf->save('cvs/'.$id.'.pdf',Storage::get("public/cvs"));
                 logger("87777");
                 break;
         }
