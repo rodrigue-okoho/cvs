@@ -60,7 +60,7 @@ class FrontController extends Controller
 
       //  $pdf->save(env('URL_FILE').$id.'.pdf')->output();
         return [
-            'url'=>env('APP_URL').'/cvs/'.$id.'.pdf'
+            'url'=>env('APP_URL').'/storage/cvs/'.$id.'.pdf'
         ];
     }
     public function uploadPhoto(Request $request){
