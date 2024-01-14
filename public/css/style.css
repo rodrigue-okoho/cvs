@@ -1,6 +1,8 @@
-.blod{
+.blod {
     font-weight: bold;
 }
+@page { margin: 0px; }
+body { margin: 0px;}
 .right-title:after {
     content: "";
     display: block;
@@ -11,6 +13,7 @@
     left: 159px;
     position: absolute;
 }
+
 .left-title:after {
     content: "";
     display: block;
@@ -21,36 +24,56 @@
     left: 158px;
     position: relative;
 }
-.col-md-3{width:25%;
-float: left}
-.col-md-9{width:72%;
-    float: right;
+
+.col-mx-3 {
+    position: relative;
+    width: 28%;
+    float: left;
+    background-color: #0a53be;
+    padding: 10px;
+    min-height: 1000px;
 }
-p{
+
+.col-mx-9 {
+    position: relative;
+    width: 68%;
+    float: right;
+    height: 100%;
+    min-height: 100%;
+
+}
+p {
     margin-top: 1px !important;
     margin-bottom: 1px !important;
 }
-.text-white{
+
+.text-white {
     color: #f7fafc;
 }
-.mt-3{
+
+.mt-3 {
     margin-top: 5px;
 }
-.f-10{
+
+.f-10 {
     font-size: 10px;
 }
-.mx-2{
+
+.mx-2 {
     margin-left: 5px;
 }
-.text-center{
+
+.text-center {
     text-align: center !important;
 }
-.row{
-    margin-top:5px;
-    margin-right:5px;
-    margin-left:5px;
+
+.row {
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
 }
-.left-title{
+
+.left-title {
     font-size: 14px;
     background-color: #f7fafc;
     padding: 5px;
@@ -61,10 +84,11 @@ p{
     font-weight: bold;
     position: relative;
 }
-.right-title{
+
+.right-title {
     font-size: 14px;
     background-color: #0a53be;
-    color:#ffffff;
+    color: #ffffff;
     padding: 5px;
     margin-bottom: 5px;
     margin-top: 15px;
@@ -73,9 +97,24 @@ p{
     font-weight: bold;
     position: relative;
 }
-.sider-bar{
-    min-height: 100px;
+
+.sider-bar {
+    height: auto !important;
+    padding: 10px;
+    min-height: 100%;
 }
+
+.icon {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    color: #0bb5f4;
+    border-radius: 50%;
+    margin-right: 15px;
+    font-size: 16px;
+    position: relative;
+}
+
 .outer-box ul {
     max-width: 400px;
     list-style-type: none;
@@ -83,11 +122,13 @@ p{
     margin: 10px 0 0;
     font-family: sans-serif;
 }
+
 .outer-box ul li {
     padding: 0 0 20px 50px;
     position: relative;
     margin: 0;
 }
+
 .outer-box ul li:after {
     position: absolute;
     top: 0;
@@ -103,6 +144,7 @@ p{
     line-height: 4px;
     background: #fff;
 }
+
 /*ul li:after {
     position: absolute;
     top: 0;
@@ -136,6 +178,7 @@ ul li:before {
     width: 0;
     border-left: 2px dotted rgba(217, 48, 37, 0.15);
 }
+
 ul li:last-of-type:before {
     border: none
 }

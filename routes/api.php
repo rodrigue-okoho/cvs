@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogCategoryController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BlogTagController;
 use App\Http\Controllers\FrontController;
@@ -20,9 +21,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/make-cv/{id}', [FrontController::class, 'cvManager'])
+Route::get('/make-cv/{id}/{typecv}', [FrontController::class, 'cvManager'])
 ->name('cvmanager');
-
+Route::post('/upload-image', [FrontController::class, 'uploadPhoto'])
+    ->name('uploadcandidatimage');
 
 Route::apiResource('/blogs', BlogController::class);
 

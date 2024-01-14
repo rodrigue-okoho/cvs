@@ -5,53 +5,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="{{public_path('css/bootstrap.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{public_path('css/style.css')}}" type="text/css">
 
 </head>
 
 <body>
-    <div class="row">
-        <div class="col-md-3 sider-bar f-10" style="background-color: #0a53be">
+    <div class="rowp">
+        <div class="col-mx-3 f-10" style="">
             {{--section image--}}
             <section class="text-white">
                 <div class=" text-center" style="margin-top: 10px">
-                  <img class="img-thumbnail rounded-circle" src="{{public_path('images/user.png')}}" height="100" width="100">
-                     {{-- <img class="img-thumbnail rounded-circle" src="{{$candidat['userAccount']['imageUrl']}}" height="100" width="100">--}}
+                 {{-- <img class="img-thumbnail rounded-circle" src="{{public_path('images/user.png')}}" height="100" width="100">--}}
+                    <img class="img-thumbnail icon" src="{{$candidat['userAccount']['imageUrl']}}" height="100" width="100">
                 </div>
                 <div  class="mt-3 mx-2">
-                    <p><img src="" alt=""/> <span class="f-10">+237675066919</span></p>
-                    <p><img src="" alt=""> <span class="f-10">{{$candidat['userAccount']['email']}}</span></p>
-                    <p><img src="" alt=""> <span class="f-10">{{$candidat['facebook']}}</span></p>
-                </div>
-            </section>
-            {{--section lingustic skills--}}
-            <section class="mt-3 mx-2">
-                <span class="left-title">Lingustics skill</span>
-                <div class="mx-2 text-white">
-                    <div class="blod">German</div>
-                    <div class="mt-3"><span style="width: 60%">Reading Comprehension:</span><span style="width: 40%;text-align: right">C1</span></div>
-                    <div class="mt-3"><span style="width: 60%">Reading Comprehension:</span><span style="width: 40%">C1</span></div>
-                    <div class="mt-3"><span style="width: 60%">Reading Comprehension:</span><span style="width: 40%">C1</span></div>
+                        <p><img class="img-thumbnail rounded-circle" height="18" width="18" src="{{public_path("images/tel.png")}}" alt=""/> <span class="f-10 mx-2">{{$candidat['userAccount']['phoneNumber']}}</span></p>
+                        <p><img class="img-thumbnail rounded-circle" height="18" width="18" src="{{public_path("images/mail.png")}}" alt=""> <span class="f-10 mx-2">{{$candidat['userAccount']['email']}}</span></p>
+                        <p><img class="img-thumbnail rounded-circle"  height="18" width="18" src="{{public_path("images/www.png")}}" alt=""> <span class="f-10 mx-2">{{$candidat['facebook']}}</span></p>
 
                 </div>
             </section>
+            {{--section lingustic skills--}}
+            @if(sizeof($languages))
+            <section class="mt-3 mx-2">
+                <span class="left-title">Lingustics skill</span>
+                @foreach($languages as $langue)
+                <div class="mx-2 text-white">
+                    <div class="blod">{{strtoupper($langue['ortherLanguage'])}}</div>
+                    <div class="mt-3"><span style="width: 60%">Reading Comprehension:</span><span style="width: 40%;text-align: right">{{strtoupper($langue['readingComprehension1'])}}</span></div>
+                    <div class="mt-3"><span style="width: 60%">OralIntegration:</span><span style="width: 40%">{{strtoupper($langue['oralIntegration'])}}</span></div>
+                    <div class="mt-3"><span style="width: 60%">Written:</span><span style="width: 40%">{{strtoupper($langue['written'])}}</span></div>
+                </div>
+                @endforeach
+            </section>
+            @endif
             {{--section digital link--}}
             <section class="mt-3 mx-2">
                 <span class="left-title">Digital Link</span>
             </section>
 
         </div>
-        <div class="col-md-9">
-            <section>
-                <h3 style="margin: 0;color: #0a53be">{{$candidat['userAccount']['firstName']}}</h3>
-                <h2 class="blod" style="margin: 0;color: #0a53be">{{$candidat['userAccount']['lastName']}}</h2>
+        <div class="col-mx-9">
+            <section style="margin: 10px">
+                <p style="margin-top: 20px;color: #0a53be;font-size: 45px !important;">{{$candidat['userAccount']['firstName']}}</p>
+                <p class="blod" style="padding-top: 0;color: #0a53be;font-size: 45px !important; font-weight: bold !important;">{{$candidat['userAccount']['lastName']}}</p>
                 <span>Designer</span>
                 <section class="mt-3 mx-2">
                     <span class="right-title">Profile</span>
                     <div>
-                        vous pouvez le charger dans votre application en ajoutant le fournisseur de services (service provider) au tableau $providers et la
-                        façade ("PDF" en abrégé) au tableau $aliases dans votre fichier de configuration
+                        {{$candidat['description']}}
                     </div>
                 </section>
                 @if(sizeof($educations))
