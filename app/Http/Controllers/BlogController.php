@@ -39,8 +39,8 @@ class BlogController extends Controller
         }
 
         $blog->name             = $request->name;
-        $blog->slug             = $request->name;
-        $blog->publish_datetime = $request->publish_datetime;
+        $blog->slug             = Helpers::slug($request->name);
+        $blog->publish_datetime = new \DateTime('now');
         $blog->content          = $request->content;
         $blog->meta_title       = $request->meta_title;
         $blog->meta_keywords    = $request->meta_keywords;
