@@ -13,9 +13,10 @@ return new class extends Migration
         Schema::create('blog_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 191);
+            $table->text('description')->nullable();
             $table->boolean('status')->default(1);
-            $table->integer('created_by')->unsigned();
-            $table->integer('updated_by')->unsigned()->nullable();
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

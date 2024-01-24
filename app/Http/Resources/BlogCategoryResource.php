@@ -17,6 +17,7 @@ class BlogCategoryResource extends JsonResource
         return [
             'id' => (string)$this->id,
             'name' => $this->name,
+            'description' => $this->description,
             'status' => $this->status,
             'created_by' => $this->created_by,
             'updated_by' => $this->updated_by,

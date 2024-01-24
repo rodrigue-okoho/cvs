@@ -31,15 +31,16 @@ class BlogCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $blogCategory = new BlogCategory();
-
+        if (is_null($request->get("id"))){
+            $blogCategory = new BlogCategory();
+            $blogCategory->created_by   = $request->created_by;
+        }else{
+            $blogCategory=BlogCategory::query()->find($request->get("id"));
+        }
         $blogCategory->name         = $request->name;
         $blogCategory->status       = $request->status;
-        $blogCategory->created_by   = $request->created_by;
+        $blogCategory->description       = $request->description;
         $blogCategory->updated_by   = $request->updated_by;
-
-
         $blogCategory->save();
 
         return response()->json('BlogCategory ajoutée avec succès !');
