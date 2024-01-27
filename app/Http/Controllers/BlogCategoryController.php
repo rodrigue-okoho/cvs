@@ -5,16 +5,19 @@ namespace App\Http\Controllers;
 use App\Http\Resources\BlogCategoryResource;
 use App\Models\BlogCategory;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class BlogCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * @param Request $request
+     * @return AnonymousResourceCollection
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        return BlogCategoryResource::collection(BlogCategory::all());
+        $per_page=is_null($request->get("per_page"))?15:$request->get("per_page");
+        return BlogCategoryResource::collection(BlogCategory::query()->paginate($per_page));
 
     }
 

@@ -11,10 +11,10 @@ class BlogTagController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        return BlogTagResource::collection(BlogTag::all());
+        $per_page=is_null($request->get("per_page"))?15:$request->get("per_page");
+        return BlogTagResource::collection(BlogTag::query()->paginate($per_page));
 
     }
 

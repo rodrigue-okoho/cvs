@@ -20,11 +20,11 @@ class FrontController extends Controller
         $languages=$json['languages'];
         logger($languages);
         $experiences=$json['works'];
-        return view('home', ['candidat'=>$json,"languages"=>$languages,
+        return view('cvs.cv3', ['candidat'=>$json,"languages"=>$languages,
             'educations'=>$educations,'experiences'=>$experiences]);
     }
     public function view_cv(){
-        return view('home', []);
+        return view('cvs.cv4', []);
 
     }
     public function cvManager($id,$typecv){

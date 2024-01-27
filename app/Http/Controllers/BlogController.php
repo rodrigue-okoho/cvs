@@ -15,9 +15,10 @@ use function Symfony\Component\String\Slugger\slug;
 class BlogController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        return BlogResource::collection(Blog::all());
+        $per_page=is_null($request->get("per_page"))?15:$request->get("per_page");
+        return BlogResource::collection(Blog::query()->paginate($per_page));
     }
 
     public function create()

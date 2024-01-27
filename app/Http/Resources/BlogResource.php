@@ -17,21 +17,21 @@ class BlogResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-        'id' => (string)$this->id,
-        'name' => $this->name,
-        'slug'  => $this->slug,
-        'publish_datetime'  => $this->publish_datetime,
-        'content'  => $this->content,
-        'meta_title'  => $this->meta_title,
-        'cannonical_link'  => $this->cannonical_link,
-        'meta_keywords'  => $this->meta_keywords,
-        'meta_description'  => $this->meta_description,
-        'status'  => $this->status,
-        'featured_image'  => $this->featured_image,
-        'created_by'  => $this->created_by,
-            "categories"=>BlogMapCategory::query()->where(['blog_id'=>$this->id])->get(["category_id"]),
-            "tags"=>BlogMapTag::query()->where(['blog_id'=>$this->id])->get(["tag_id"]),
-        'updated_by'  => $this->updated_by,
+            'id' => (string)$this->id,
+            'name' => $this->name,
+            'slug' => $this->slug,
+            'publish_datetime' => $this->publish_datetime,
+            'content' => $this->content,
+            'meta_title' => $this->meta_title,
+            'cannonical_link' => $this->cannonical_link,
+            'meta_keywords' => $this->meta_keywords,
+            'meta_description' => $this->meta_description,
+            'status' => $this->status,
+            'featured_image' => $this->featured_image,
+            'created_by' => $this->created_by,
+            "categories" => BlogMapCategory::query()->where(['blog_id' => $this->id])->get(["category_id"]),
+            "tags" => BlogMapTag::query()->where(['blog_id' => $this->id])->get(["tag_id"]),
+            'updated_by' => $this->updated_by,
         ];
 
     }

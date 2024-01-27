@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontController::class, 'home'])
     ->name('home');
+Route::get('/view_cv', [FrontController::class, 'view_cv'])
+    ->name('view_cv');
