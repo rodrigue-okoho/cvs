@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogCategoryController;
+use App\Http\Controllers\BlogCommentController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BlogTagController;
 use App\Http\Controllers\FrontController;
@@ -31,7 +32,7 @@ Route::apiResource('/blogs', BlogController::class);
 Route::apiResource('/blog_category', BlogCategoryController::class);
 
 Route::apiResource('/blog_tag', BlogTagController::class);
-
+Route::apiResource('/blog_comments', BlogCommentController::class);
 
 //Route::get('/blogs/{blog}', [BlogController::class, 'show']);
 //Route::get('/blogs', [BlogController::class, 'index']);
