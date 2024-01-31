@@ -25,6 +25,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('/make-cv/{id}/{typecv}', [FrontController::class, 'cvManager'])
 ->name('cvmanager');
+Route::post('/upload-image-employer', [FrontController::class, 'uploadPhotoEmployer'])
+    ->name('uploadPhotoEmployer');
 Route::post('/upload-image', [FrontController::class, 'uploadPhoto'])
     ->name('uploadcandidatimage');
 

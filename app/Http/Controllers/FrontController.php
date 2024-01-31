@@ -95,4 +95,33 @@ class FrontController extends Controller
          return EndPoints::savePhoto(json_encode($item));
 
     }
+    public function uploadPhotoEmployer(Request $request){
+        $id=$request->get("id");
+        $data=$request->get("imageUrl");
+        $type=$request->get("type");
+        $image_parts = explode(";base64,", $data);
+        $image_base64 = base64_decode($image_parts[1]);
+        if ($type === 'image/png') {
+            $imagename = uniqid() . '.png';
+        } else {
+            $imagename = uniqid() . '.jpg';
+        }
+
+        $file = Storage::path("public/photos/") . $imagename;
+        if (!Storage::disk('public')->exists("photos")) {
+            Storage::disk('public')->makeDirectory("photos");
+        }
+        Storage::disk('public')->put('photos/' . $imagename, $image_base64);
+        $item=[
+            'mode'=>$request->get("mode"),
+            'id'=>$id,
+            "user_type"=>$request->get("user_type"),
+            'url'=>env("APP_URL").'/storage/photos/'.$imagename,
+            'domain'=>env("APP_URL"),
+            'imageUrl'=>env("APP_URL").'/storage/photos/'.$imagename,
+            'fileUrl'=>$file
+        ];
+        return EndPoints::savePhotoEmployer(json_encode($item));
+
+    }
 }
