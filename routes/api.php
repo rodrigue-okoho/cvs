@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogCategoryController;
 use App\Http\Controllers\BlogCommentController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BlogTagController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\FrontController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -34,5 +35,5 @@ Route::apiResource('/blog_category', BlogCategoryController::class);
 Route::apiResource('/blog_tag', BlogTagController::class);
 Route::apiResource('/blog_comments', BlogCommentController::class);
 
-//Route::get('/blogs/{blog}', [BlogController::class, 'show']);
-//Route::get('/blogs', [BlogController::class, 'index']);
+Route::get('/chats', [ChatController::class, 'getMessages']);
+Route::post('/chats/send-message', [ChatController::class, 'sendMessage']);
