@@ -23,7 +23,7 @@ class ChatController extends Controller
         ->orderBy('created_at', 'asc')
        // ->take(20)
         ->get();
-        looger($messages);
+        logger($messages);
 
         return response()->json(['messages', $messages]);
     }
