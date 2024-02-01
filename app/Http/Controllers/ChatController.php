@@ -21,7 +21,7 @@ class ChatController extends Controller
                 ->where('receiver_id', $receiver_id);
         })
         ->orderBy('created_at', 'asc')
-        ->take(20)
+       // ->take(20)
         ->get();
 
         return response()->json(['messages', $messages]);
