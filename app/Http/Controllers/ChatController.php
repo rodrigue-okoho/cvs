@@ -16,8 +16,7 @@ class ChatController extends Controller
         $sender_id = $request->get("sender_id");
         $receiver_id = $request->get("receiver_id");
 
-        $messages = Chat::query()->where(function ($query) use ($sender_id, $receiver_id) {
-            $query->where('sender_id', $sender_id)
+        $messages = Chat::query()->where('sender_id', $sender_id)
                 ->where('receiver_id', $receiver_id);
         })
         ->orderBy('created_at', 'asc')
@@ -25,7 +24,7 @@ class ChatController extends Controller
         ->get();
         logger($messages);
 
-        return response()->json(['messages', $messages]);
+        return response()->json($messages);
     }
 
     public function sendMessage(Request $request) {
