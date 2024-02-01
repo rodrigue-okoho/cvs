@@ -16,8 +16,8 @@ class ChatController extends Controller
         $sender_id = $request->get("sender_id");
         $receiver_id = $request->get("receiver_id");
 
-        $messages = Chat::query()->where('sender_id', $sender_id)
-                ->where('receiver_id', $receiver_id)
+        $messages = Chat::query()->where('sender_id','=', $sender_id)
+                ->where('receiver_id','=', $receiver_id)
         ->orderBy('created_at', 'asc')
        // ->take(20)
         ->get();
